@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login (Admin)</title>
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+<body>
+<main id="welcomePage">
+    <div class="containerWelcome">
+        <img src="../imagens/Libris.png" alt="icone" class="iconeLibris">
+        <h1 class="subtitulo">Painel Administrativo</h1>
+        <p>Por favor, faça login com sua matrícula de funcionário.</p>
+        
+        <form action="../php/processa_login_admin.php" method="POST" class="flexColumn">
+            <input type="text" class="input welcome" name="matricula" placeholder="Matrícula" required>
+            <input type="password" class="input welcome" name="senha" placeholder="Senha" required>
+            <button type="submit" class="btn login">Login</button>
+        </form>
+        <br>
+        <a class="btn signin" href="../index.php">Voltar ao Site Público</a>
+    </div>
+</main>
+</body>
+</html>

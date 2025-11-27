@@ -1,0 +1,589 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+body{
+    font-family: 'Outfit', sans-serif !important;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.fundoAzul{
+    background-color: white;
+}
+
+#content {
+    position: absolute;
+    top: 20px;
+    left: 300px; /* alinhado ao lado da sidebar */
+    width: calc(100% - 300px);
+    height: 100%; /* preenche toda a tela */
+    background-color: #EBEBEB;
+    padding: 10px;
+    box-sizing: border-box;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    overflow-y: auto;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+.flexColumn{
+    display: flex;
+    flex-direction: column;
+}
+
+.flexCenter{
+    display: flex;
+    justify-content: center;
+}
+
+.flexRow{
+    display: flex;
+    flex-direction: row;
+}
+
+.bolder{
+    font-weight: 700;
+}
+
+#welcomePage{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: url(../imagens/librisFundo.png) center/cover no-repeat;
+    background-color: #EBEBEB;
+    background-position: center;
+    z-index: 0;
+    display: flex;                  
+    justify-content: center;        
+    align-items: center;
+}
+
+
+#welcomePage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(212, 211, 214, 0.6); 
+  z-index: -1;
+}
+
+/*
+#welcomePage::after{
+    content: "";
+    position: fixed;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.6), 
+        rgba(0, 0, 0, 0.3),  
+        rgba(0, 0, 0, 0.8)   
+    );
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+*/
+.containerWelcome{
+    background-color: rgba(255, 255, 255, 0.932);
+    z-index: 2;
+    width: 30rem;
+    padding: 3rem;
+    border-radius: 30px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+}
+
+.iconeLibris{
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.input{
+    font-family: 'Outfit', sans-serif;
+    padding: 0.8rem;
+    font-size: 16px;
+    border-radius: 15px;
+    border: 1px solid grey;
+}
+
+.input.welcome{
+    margin: 0.5rem 0;
+}
+
+.input.search{
+    border-radius: 20px;
+    border:none;
+    padding-left: 3rem;
+}
+
+.searchFor{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 2rem;
+    display: flex;
+    flex: 1;
+}
+
+#searchFor-input{
+    display: flex;
+    flex: 1;
+    border: #0000 solid 3px;
+    box-shadow:
+        0 0 0 9px #0000;
+}
+
+#searchFor-input:focus-visible{
+    background: white;
+    border: 3px solid #384ea5;
+    box-shadow:
+        0 0 0 3px white,
+        0 0 0 6px #cd00ae;  
+    outline: none;
+}
+
+.searchFor i{
+    position: absolute;
+    left:1rem;
+}
+
+.btn{
+    border: none;
+    border-radius: 15px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    padding: 0.7rem;
+    margin: 0.5rem 0;
+    transition: transform 0.2s ease;
+}
+
+.btn:hover{
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+}
+
+.btn.login{
+    background-color: #384ea5;
+    color:white
+}
+
+.btn.signin{
+    color: #384ea5;
+    background-color:white;
+    border: 1px solid #384ea5;
+}
+
+#navBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 237px;
+    background-color: white;
+    z-index: 1000;
+    padding: 3rem 2rem;
+    transform: translateX(0);
+    display: flex;
+    flex-direction: column;
+    color:#263a8a !important;
+}
+
+#navBar p{
+    margin: 0;
+}
+
+#navBar.fechado {
+    width: 80px;
+    display: flex;
+    align-items: center;
+    padding:3rem 0;
+}
+
+#navBar.fechado p {
+    display: none;
+    width: 0;
+}
+
+#navBar.fechado .navBar-itemList {
+    justify-content: center;
+    margin: 2rem 0;
+    gap: 0;
+}
+
+    #navBar.fechado #fecharMoni,
+    #navBar.fechado #abrirMoni {
+    display: none;
+    }
+
+    #navBar.fechado .infosUser-menu{
+        margin-bottom: 1rem;
+        gap:0;
+    }
+
+    #navBar .navBar-itemList i {
+    min-width: 24px;
+    text-align: center;
+    font-size: 1.3rem;
+    }
+
+    #opennavBar {
+    position: fixed;
+    top: 50%;
+    left:0;
+    transform: translateY(-50%);
+    height: 7vh;
+    width: 4vh;
+    background-color: white;
+    border: none;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 1001;
+    box-shadow: 12px 0px 16px 0px #1987540e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    }
+
+    #opensidebarr i {
+    color: #cd00ae;
+    font-size: 1.2rem;
+    }
+
+.infosUser-menu{
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.infosUser-menu i{
+    font-size: 30px;
+}
+
+.infosUser-menu p{
+    margin: 0;
+    font-size: 17px;
+}
+
+.navBar-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navBar-itemList{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color:#263a8a;
+    text-align: start;
+    gap:1rem;
+    margin: 2rem 0;
+}
+
+.descricao{
+    font-size: 22px;
+}
+
+.infosUser{
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
+    text-align: start;
+}
+
+.infosUser i{
+    font-size: 24px;
+}
+
+.container.textWelcome{
+    background: linear-gradient(to right, #263a8a, #384ea5);
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: fit-content;
+    margin: 2rem;
+    align-items: center;
+    padding: 2rem;
+    color:white;
+    position: relative;
+    text-align: start;
+    display: flex;
+    justify-content: space-between;
+}   
+
+.container.textWelcome img{
+    height: 13rem;
+    object-fit: cover;
+}
+
+
+.container{
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: fit-content;
+    margin: 2rem;
+    padding: 2rem;
+    background-color:white;
+    color:#263a8a;
+}
+
+.invisibleContainer{
+    height: fit-content;
+    margin: 2rem;
+    background-color:#0000;
+    color:#222d58;
+}
+
+
+.mainActions-container{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+    z-index: 100000;
+}
+
+.mainAction{
+    background-color: white;
+    border-radius: 50px;
+    padding: 1rem 2rem 2rem;
+    width: 15rem;
+    height: 15rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    justify-content: center;
+    text-align: center;
+    z-index: 100000;
+    border: 2px solid;
+    border-color: currentColor;
+}
+
+.mainAction.roxo {
+    --cor-tema: #4e2878;
+}
+
+.mainAction.rosa {
+    --cor-tema: #cd00ae;
+}
+
+.mainAction.azul {
+    --cor-tema: #384ea5;
+}
+
+.mainAction {
+    color: var(--cor-tema);
+    text-align: center;
+}
+
+.mainAction p {
+    height: 4rem;
+}
+
+/* Ícone e botão seguem a cor da classe pai */
+.mainAction .icon-mainAction,
+.mainAction .btn-mainAction {
+    background-color: var(--cor-tema);
+    color: #e9f1ec;
+}
+
+/* Ícone circular */
+.icon-mainAction {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    font-size: 26px;
+    text-decoration: none;
+    margin: 1rem auto;
+}
+
+/* Botão */
+.btn-mainAction {
+    border-radius: 30px;
+    border: none;
+    gap: 1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Hover do botão: escurece um pouco */
+.mainAction .btn-mainAction:hover {
+    filter: brightness(0.9);
+}
+
+.btn-mainAction i{
+    margin-left: 0.3rem;
+}
+
+
+.new{
+    background-color: #263a8a;
+    margin: 2rem;
+    padding:1rem 2rem;
+    border-radius: 20px;
+    color:#e9f1ec;
+    gap:1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.new i{
+    font-size: 30px;
+}
+
+.item-book, 
+.item-emprestimo{
+    background-color: white;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 20px;
+    color:grey;
+    gap:1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.item-book img{
+    width: 10rem;
+    height: 15rem;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0;
+}
+
+.logout{
+    gap:1rem;
+    background-color: #0000;
+    border: none;
+    font-family: 'Outfit', sans-serif;
+    color: #263a8a;
+}
+
+.addItens{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: none;
+}
+
+.cadastroForm label,
+.formNovo label{
+    text-transform: uppercase;
+    opacity: 0.7;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.cadastroForm{
+    text-align: justify;
+    gap:0.5rem;
+}
+
+.subtitulo{
+    color:#263a8a;
+}
+
+.formNovo{
+    width: 100%;
+}
+
+.formNovo .flexRow{
+    vertical-align: middle;
+    align-items: center;
+    display: flex;
+    flex: 1;
+}
+
+.footer{
+    background-color: #263a8a;
+    position: static;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    color:white;
+    font-style: italic;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.table-container { background: white; margin: 2rem; padding: 2rem; border-radius: 15px; }
+        
+.table-container h2 { margin-top: 0; }
+        
+.responsive-table { width: 100%; border-collapse: collapse; }
+        
+.responsive-table th, .responsive-table td { padding: 0.8rem; text-align: left; border-bottom: 1px solid #eee; }
+
+.responsive-table th { background-color: #f9f9f9; }
+
+.btn-devolver { background-color: #2dae7c; color: white; padding: 0.5rem 1rem; border-radius: 10px; text-decoration: none; }
+
+.item-book img {
+    width: 10rem;
+    height: 15rem;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0;
+}
+
+.resumo { font-style: italic; color: #555; }
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 10000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 400px;
+}
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.categoria-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.btn-add-categoria {
+    background-color: #2dae7c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    line-height: 25px;
+}

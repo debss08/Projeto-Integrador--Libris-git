@@ -1,0 +1,202 @@
+/* css/public.css */
+
+body {
+    overflow: auto; /* Garante scroll nas páginas públicas */
+}
+
+/* === Header Público (1.jpg) === */
+.public-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--cor-principal);
+    color: var(--cor-texto-claro);
+}
+.public-header .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--cor-texto-claro);
+}
+.public-nav a {
+    margin-left: 1.5rem;
+    color: var(--cor-texto-claro);
+    font-weight: 500;
+}
+.public-nav .btn-login {
+    background: transparent;
+    border: 2px solid var(--cor-texto-claro);
+    color: var(--cor-texto-claro);
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+}
+.public-nav .btn-cadastrar {
+    background: var(--cor-fundo-card);
+    border: 2px solid var(--cor-fundo-card);
+    color: var(--cor-principal);
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+}
+
+/* === Hero Section (1.jpg) === */
+.hero-section {
+    background-color: var(--cor-principal);
+    color: var(--cor-texto-claro);
+    text-align: center;
+    padding: 4rem 2rem 6rem 2rem;
+}
+.hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.hero-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin: 1rem 0 2rem;
+}
+.hero-image {
+    margin-top: 2rem;
+}
+.hero-image img {
+    max-width: 350px;
+}
+.hero-bottom-curve {
+    background-color: var(--cor-fundo);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    height: 80px;
+    margin-top: -80px;
+    transform: scaleX(1.5);
+}
+
+/* === Seção de Ações (1.jpg) === */
+.actions-section {
+    background-color: var(--cor-fundo);
+    padding: 2rem 5% 4rem;
+    text-align: center;
+}
+.actions-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+.actions-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.action-card {
+    background-color: var(--cor-fundo-card);
+    padding: 2rem;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    text-align: center;
+}
+.action-card img {
+    height: 100px;
+    margin-bottom: 1rem;
+}
+.action-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+.action-card .btn {
+    display: block;
+    width: 100%;
+}
+
+/* === Acervo (2.jpg) === */
+.acervo-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+.acervo-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.acervo-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.search-bar {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.search-bar .input-search {
+    width: 100%;
+    padding: 1rem 1.5rem 1rem 3.5rem;
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+.search-bar i {
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 1.2rem;
+}
+.acervo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+}
+.book-card {
+    background-color: var(--cor-fundo-card);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    overflow: hidden;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.book-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+.book-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    color: var(--cor-texto);
+}
+.book-card p {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+/* === Footer Público (1.jpg) === */
+.public-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: var(--cor-principal);
+    color: var(--cor-texto-claro);
+    margin-top: 4rem;
+}
+.public-footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+.public-footer .footer-nav a {
+    margin-left: 1.5rem;
+    color: var(--cor-texto-claro);
+    font-weight: 500;
+}
