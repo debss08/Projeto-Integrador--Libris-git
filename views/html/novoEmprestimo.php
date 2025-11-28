@@ -11,17 +11,13 @@ if (!isset($_SESSION['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novo Empréstimo</title>
-    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../style/css/global.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="../js/global.js"></script>
 </head>
 <body class="fundoAzul">
     <aside>
-        <button id="opennavBar">
-            <i class="fa-solid fa-angles-left" id="abrirMenu"></i>
-            <i class="fa-solid fa-angles-right" id="fecharMenu" style="display: none;"></i>
-        </button>
         <nav id="navBar">
             <div class="infosUser-menu flexRow">
                 <i class="fa-regular fa-user"></i>
