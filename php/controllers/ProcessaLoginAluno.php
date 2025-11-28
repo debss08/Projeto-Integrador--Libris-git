@@ -1,49 +1,31 @@
 <?php
 session_start();
-require '../models/Conexao.php';
+require_once '../models/Aluno.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: ../login_aluno.php');
+    header('Location: ../../views/html/login_aluno.php');
     exit();
 }
 
-$matricula = $_POST['matricula'] ?? '';
-$senha = $_POST['senha'] ?? '';
+$matricula = trim($_POST['matricula'] ?? '');
+$senha = trim($_POST['senha'] ?? '');
 
-if ($matricula === '' || $senha === '') {
+if (empty($matricula) || empty($senha)) {
     echo "<script>alert('Preencha todos os campos.'); history.back();</script>";
     exit();
 }
 
 try {
-    $con = Conexao::getConexao();
+    $aluno = Aluno::buscarPorMatricula($matricula);
 
-    // 1. Encontrar o login pela matrícula
-    $stmt = $con->prepare("SELECT * FROM Login WHERE matricula = :matricula");
-    $stmt->bindParam(':matricula', $matricula);
-    $stmt->execute();
-    $login = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    // 2. Verificar senha E nível de acesso
-    if ($login && password_verify($senha, $login['senha_hash']) && $login['nivel'] === 'usuario') {
-        
-        // 3. Buscar nome e ID do aluno na tabela 'cad_alunos'
-        $stmtAluno = $con->prepare("SELECT id, nome FROM cad_alunos WHERE login_id = :login_id");
-        $stmtAluno->bindParam(':login_id', $login['id']);
-        $stmtAluno->execute();
-        $aluno = $stmtAluno->fetch();
-
-        if (!$aluno) {
-             echo "<script>alert('Erro: Conta de usuário não encontrada. Contate o admin.'); history.back();</script>";
-             exit;
-        }
-
-        // 4. Criar a Sessão de ALUNO
-        $_SESSION['aluno_id'] = $aluno['id']; // ID da tabela cad_alunos (ESSENCIAL p/ empréstimos)
+    if ($aluno && password_verify($senha, $aluno['senha_hash'])) {
+        // Criar a Sessão de ALUNO
+        $_SESSION['aluno_id'] = $aluno['aluno_id']; // ID da tabela cad_alunos
+        $_SESSION['aluno_login_id'] = $aluno['login_id']; // ID da tabela Login
         $_SESSION['aluno_nome'] = $aluno['nome'];
-        $_SESSION['nivel'] = $login['nivel'];
+        $_SESSION['nivel'] = $aluno['nivel'];
 
-        header("Location: ../area_aluno.php"); // Redireciona para o dashboard do aluno
+        header("Location: ../../views/html/area_aluno.php"); // Redireciona para o dashboard do aluno
         exit();
     } else {
         echo "<script>alert('Matrícula ou senha incorretas!'); history.back();</script>";

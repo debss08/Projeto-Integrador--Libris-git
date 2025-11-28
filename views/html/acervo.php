@@ -1,7 +1,7 @@
 <?php
     require_once "../../php/models/Conexao.php";
     require_once "../../php/models/Livro.php";
-    $livros = Livro::listarTodos(); // Busca os livros
+    $livros = Livro::listarTodosComDetalhes(); // Busca os livros
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -1,12 +1,11 @@
 <?php
 session_start();
-// Proteção: Verifica se é um ALUNO logado
 if (!isset($_SESSION['aluno_id']) || $_SESSION['nivel'] !== 'usuario') {
     header("Location: login_aluno.php");
     exit();
 }
 
-require_once "php/conexao.php";
+require_once "../../php/models/Conexao.php";
 $con = Conexao::getConexao();
 $id_aluno_logado = $_SESSION['aluno_id'];
 
@@ -38,7 +37,7 @@ $emprestimos_historico = $stmt_historico->fetchAll();
     <meta charset="UTF-8">
     <title>Minha Conta - Libris</title>
     <link rel="stylesheet" href="../style/css/global.css">
-    <link rel="stylesheet" href="../style/css/style.css">
+    <link rel="stylesheet" href="../style/css/public.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
@@ -47,7 +46,7 @@ $emprestimos_historico = $stmt_historico->fetchAll();
         <nav class="public-nav">
             <a href="index.php">Início</a>
             <a href="acervo.php">Nosso Acervo</a>
-            <a href="php/logout_aluno.php" class="btn-primary">Sair</a> 
+            <a href="../../php/util/logout.php" class="btn-primary">Sair</a> 
         </nav>
     </header>
 

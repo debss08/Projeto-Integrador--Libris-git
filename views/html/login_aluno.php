@@ -11,7 +11,7 @@
         <h1>Login do Aluno</h1>
         <p>Acesse sua conta para solicitar empréstimos.</p>
         
-        <form action="php/processa_login_aluno.php" method="POST" class="flexColumn">
+        <form action="../../php/controllers/ProcessaLoginAluno.php" method="POST" class="flexColumn">
             <input type="text" class="input welcome" name="matricula" placeholder="Matrícula" required>
             <input type="password" class="input welcome" name="senha" placeholder="Senha" required>
             <button type="submit" class="btn login">Login</button>

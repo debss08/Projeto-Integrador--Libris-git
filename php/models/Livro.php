@@ -2,7 +2,6 @@
 require_once 'Conexao.php';
 
 class Livro {
-    // ... (suas propriedades: id, titulo, autor, etc.) ...
     public $id;
     public $titulo;
     public $autor;
@@ -14,7 +13,7 @@ class Livro {
     public $quantidade_total;
     public $quantidade_disponivel;
 
-    public static function listarTodos() {
+    public static function listarTodosComDetalhes() {
         $con = Conexao::getConexao();
         $sql = "SELECT 
                     l.*, 
@@ -30,7 +29,37 @@ class Livro {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_CLASS, 'Livro');
     }
-    
-    // ... (outros métodos como buscarPorId) ...
+
+    public static function cadastrar($titulo, $autor, $resumo, $data_lancamento, $caminhoImagem, $categoria, $quantidade) {
+        $con = Conexao::getConexao();
+        $con->beginTransaction();
+        try {
+            $sqlLivro = "INSERT INTO cad_livros (titulo, autor, resumo, data_lancamento, imagem_capa, id_categoria)
+                         VALUES (:titulo, :autor, :resumo, :data_lancamento, :imagem, :categoria)";
+            $stmt = $con->prepare($sqlLivro);
+            $stmt->bindParam(':titulo', $titulo);
+            $stmt->bindParam(':autor', $autor);
+            $stmt->bindParam(':resumo', $resumo);
+            $stmt->bindParam(':data_lancamento', $data_lancamento);
+            $stmt->bindParam(':imagem', $caminhoImagem);
+            $stmt->bindParam(':categoria', $categoria);
+            $stmt->execute();
+
+            $idLivro = $con->lastInsertId();
+
+            $sqlAcervo = "INSERT INTO cad_acervo (id_livro, quantidade_total, quantidade_disponivel)
+                          VALUES (:id_livro, :qtd, :qtd)";
+            $stmt2 = $con->prepare($sqlAcervo);
+            $stmt2->bindParam(':id_livro', $idLivro);
+            $stmt2->bindParam(':qtd', $quantidade);
+            $stmt2->execute();
+
+            $con->commit();
+            return true;
+        } catch (PDOException $e) {
+            $con->rollBack();
+            return $e->getMessage();
+        }
+    }
 }
 ?>

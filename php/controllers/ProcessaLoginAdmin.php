@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once '../models/Conexao.php'; // Caminho ajustado
+require '../models/Conexao.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: ../../views/html/login_admin.html'); // Caminho ajustado
+    header('Location: ../../views/html/login_admin.html'); 
     exit();
 }
 
@@ -22,22 +22,30 @@ try {
     $stmt->execute();
     $login = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($login && password_verify($senha, $login['senha_hash']) && $login['nivel'] === 'admin') {
+    if ($login && password_verify($senha, $login['senha_hash']) && $login['nivel'] == 'admin') {
+        
+        // Busca o nome completo do funcionário (Admin) na tabela de funcionários
         $stmtFunc = $con->prepare("SELECT nome FROM cad_funcionarios WHERE login_id = :login_id");
         $stmtFunc->bindParam(':login_id', $login['id']);
         $stmtFunc->execute();
         $funcionario = $stmtFunc->fetch();
 
-        $_SESSION['admin_id'] = $login['id'];
-        $_SESSION['admin_nome'] = $funcionario['nome'] ?? 'Admin';
-        $_SESSION['nivel'] = $login['nivel'];
+        $_SESSION['id'] = $login['id']; // CORRIGIDO: Agora usa 'id'
+        $_SESSION['nome'] = $funcionario['nome'] ?? 'Admin'; // CORRIGIDO: Agora usa 'nome'
+        $_SESSION['nivel'] = $login['nivel']; 
 
-        header("Location: ../../views/html/inicio.php"); // Caminho ajustado
+        // Redireciona para o painel principal
+        header("Location: ../../views/html/inicio.php"); 
         exit();
     } else {
-        echo "<script>alert('Matrícula ou senha incorretas!'); history.back();</script>";
+         // Se a falha for de credenciais ou nível incorreto
+         echo "<script>alert('Matrícula ou senha incorretas, ou usuário não é administrador!'); history.back();</script>";
+         exit();
     }
 } catch (PDOException $e) {
-    echo "<script>alert('Erro no banco de dados.'); history.back();</script>";
+    // Loga o erro real (para você ver no log do servidor) e exibe uma mensagem genérica.
+    error_log("Erro no ProcessaLoginAdmin: " . $e->getMessage()); 
+    echo "<script>alert('Erro no banco de dados. Tente novamente mais tarde.'); history.back();</script>";
+    exit();
 }
 ?>

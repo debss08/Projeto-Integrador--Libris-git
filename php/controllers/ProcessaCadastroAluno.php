@@ -1,9 +1,9 @@
 <?php
 session_start();
-require '../models/Conexao.php';
+require_once '../models/Aluno.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: ../views/html/cadastro.html');
+    header('Location: ../../views/html/cadastro_aluno.php');
     exit();
 }
 
@@ -13,38 +13,20 @@ $data_nascimento = $_POST['data_nascimento'] ?? '';
 $matricula = trim($_POST['matricula'] ?? '');
 $senha = $_POST['senha'] ?? '';
 
-if ($nome === '' || $cpf === '' || $data_nascimento === '' || $matricula === '' || $senha === '') {
+if (empty($nome) || empty($cpf) || empty($data_nascimento) || empty($matricula) || empty($senha)) {
     echo "<script>alert('Preencha todos os campos.'); history.back();</script>";
     exit();
 }
 
-$hash = password_hash($senha, PASSWORD_DEFAULT);
-$nivel = 'usuario'; 
+$resultado = Aluno::cadastrar($nome, $cpf, $data_nascimento, $matricula, $senha);
 
-$con = Conexao::getConexao();
-
-$stmtCheck = $con->prepare("SELECT id FROM Login WHERE cpf = :cpf OR matricula = :matricula");
-$stmtCheck->bindParam(':cpf', $cpf);
-$stmtCheck->bindParam(':matricula', $matricula);
-$stmtCheck->execute();
-
-if ($stmtCheck->rowCount() > 0) {
-    echo "<script>alert('CPF ou matrícula já cadastrados!'); history.back();</script>";
-    exit();
-}
-
-$stmt = $con->prepare("INSERT INTO Login (nome, cpf, data_nascimento, matricula, senha_hash, nivel)
-                       VALUES (:nome, :cpf, :data_nascimento, :matricula, :senha, :nivel)");
-$stmt->bindParam(':nome', $nome);
-$stmt->bindParam(':cpf', $cpf);
-$stmt->bindParam(':data_nascimento', $data_nascimento);
-$stmt->bindParam(':matricula', $matricula);
-$stmt->bindParam(':senha', $hash);
-$stmt->bindParam(':nivel', $nivel);
-
-if ($stmt->execute()) {
-    echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href='../html/login.html';</script>";
+if ($resultado === true) {
+    echo "<script>alert('Cadastro realizado com sucesso! Faça seu login.'); window.location.href='../../views/html/login_aluno.php';</script>";
 } else {
-    echo "<script>alert('Erro ao cadastrar usuário.'); history.back();</script>";
+    if (strpos($resultado, '1062') !== false) { // 1062 = Erro de duplicidade
+        echo "<script>alert('Erro: CPF ou Matrícula já cadastrados!'); history.back();</script>";
+    } else {
+        echo "<script>alert('Erro ao cadastrar: " . addslashes($resultado) . "'); history.back();</script>";
+    }
 }
 ?>
