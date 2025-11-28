@@ -6,10 +6,10 @@ if (!isset($_SESSION['admin_id'])) {
     exit();
 }
 
-require_once "../php/conexao.php";
-require_once "../php/livro.php"; // Chama a nova classe Livro
+require_once "../../php/models/Conexao.php";
+require_once "../../php/models/Livro.php"; // Chama a nova classe Livro
 
-$livros = Livro::listarTodos();
+$livros = Livro::listarTodosComDetalhes();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,22 +23,46 @@ $livros = Livro::listarTodos();
 </head>
 <body class="fundoAzul">
 <aside>
-    <nav id="navBar">
-        <div class="infosUser-menu flexRow">
-            <i class="fa-regular fa-user"></i>
-            <div class="flexColumn">
-                <p class="bolder"><?php echo htmlspecialchars($_SESSION['admin_nome']);?></p>
+        <nav id="navBar">
+            <div class="infosUser-menu flexRow">
+                <i class="fa-solid fa-user-gear"></i> <div class="flexColumn">
+                    <p class="bolder">Admin: <?php echo htmlspecialchars($_SESSION['nome']);?></p>
+                    <p>Nível: <?php echo htmlspecialchars(ucfirst($_SESSION['nivel']));?></p>
+                </div>
             </div>
-        </div>
-        <ul class="navBar-list">
-            <li><a href="./inicio.php" class="navBar-itemList"><i class="fa-solid fa-house"></i><p>Início</p></a></li>
-            <li><a href="./emprestimos.php" class="navBar-itemList"><i class="fa-solid fa-cart-shopping"></i><p>Empréstimos</p></a></li>
-            <li><a href="./biblio.php" class="navBar-itemList"><i class="fa-solid fa-book"></i><p>Acervo</p></a></li>
-        </ul>
-        <a class="logout flexRow" type="button" href="../php/logout.php"> <i class="fa-solid fa-right-from-bracket"></i><p>Logout</p>
-        </a>
-    </nav>
-</aside>
+            <ul class="navBar-list">
+                <li>
+                    <a href="./inicio_admin.php" class="navBar-itemList">
+                        <i class="fa-solid fa-house"></i>
+                        <p>Início</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./gerenciar_usuarios.php" class="navBar-itemList">
+                        <i class="fa-solid fa-users-gear"></i>
+                        <p>Gerenciar Usuários</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./emprestimos.php" class="navBar-itemList">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <p>Empréstimos</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./biblio.php" class="navBar-itemList">
+                        <i class="fa-solid fa-book"></i>
+                        <p>Acervo</p>
+                    </a>
+                </li>
+            </ul>
+            <a class="logout flexRow" type="button" href="../../php/util/logout.php">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <p>Logout</p>
+            </a>
+        </nav>
+    </aside>
+    
 <main id="content">
     <div class="searchFor">
         <input type="text" name="searchFor-input" id="searchFor-input" placeholder="Buscar..." class="input search">

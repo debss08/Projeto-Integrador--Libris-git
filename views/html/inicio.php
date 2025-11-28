@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ($_SESSION['nivel'] != 'admin' || !isset($_SESSION['id'])) {
+if ($_SESSION['nivel'] != 'admin' || !isset($_SESSION['admin_id'])) {
     header("Location: ./index.php");
     exit();
 }
@@ -52,7 +52,7 @@ if ($_SESSION['nivel'] != 'admin' || !isset($_SESSION['id'])) {
                     </a>
                 </li>
             </ul>
-            <a class="logout flexRow" type="button" href="./logout.php">
+            <a class="logout flexRow" type="button" href="../../php/util/logout.php">
                 <i class="fa-solid fa-right-from-bracket"></i>
                 <p>Logout</p>
             </a>

@@ -141,10 +141,6 @@ body{
     padding: 0;
 }
 
-.fundoAzul{
-    background-color: white;
-}
-
 #content {
     position: absolute;
     top: 20px;
@@ -301,52 +297,9 @@ a{
     border: 1px solid #384ea5;
 }
 
-#navBar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 237px;
-    background-color: white;
-    z-index: 1000;
-    padding: 3rem 2rem;
-    transform: translateX(0);
-    display: flex;
-    flex-direction: column;
-    color:#263a8a !important;
-}
-
 #navBar p{
     margin: 0;
 }
-
-#navBar.fechado {
-    width: 80px;
-    display: flex;
-    align-items: center;
-    padding:3rem 0;
-}
-
-#navBar.fechado p {
-    display: none;
-    width: 0;
-}
-
-#navBar.fechado .navBar-itemList {
-    justify-content: center;
-    margin: 2rem 0;
-    gap: 0;
-}
-
-    #navBar.fechado #fecharMoni,
-    #navBar.fechado #abrirMoni {
-    display: none;
-    }
-
-    #navBar.fechado .infosUser-menu{
-        margin-bottom: 1rem;
-        gap:0;
-    }
 
     #navBar .navBar-itemList i {
     min-width: 24px;

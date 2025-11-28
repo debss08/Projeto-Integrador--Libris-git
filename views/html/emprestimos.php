@@ -1,10 +1,11 @@
 <?php
 session_start();
 if (!isset($_SESSION['admin_id'])) {
-    header("Location: ../html/login_admin.html");
+    header("Location: login_admin.html");
     exit();
 }
-require_once "../php/conexao.php";
+
+require '../../php/models/Conexao.php';
 
 $con = Conexao::getConexao();
 
@@ -48,6 +49,47 @@ $emprestimos_historico = $stmt_historico->fetchAll();
 <aside>
     </aside>
 <main id="content">
+    <aside>
+        <nav id="navBar">
+            <div class="infosUser-menu flexRow">
+                <i class="fa-solid fa-user-gear"></i> <div class="flexColumn">
+                    <p class="bolder">Admin: <?php echo htmlspecialchars($_SESSION['nome']);?></p>
+                    <p>Nível: <?php echo htmlspecialchars(ucfirst($_SESSION['nivel']));?></p>
+                </div>
+            </div>
+            <ul class="navBar-list">
+                <li>
+                    <a href="./inicio_admin.php" class="navBar-itemList">
+                        <i class="fa-solid fa-house"></i>
+                        <p>Início</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./gerenciar_usuarios.php" class="navBar-itemList">
+                        <i class="fa-solid fa-users-gear"></i>
+                        <p>Gerenciar Usuários</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./emprestimos.php" class="navBar-itemList">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <p>Empréstimos</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./biblio.php" class="navBar-itemList">
+                        <i class="fa-solid fa-book"></i>
+                        <p>Acervo</p>
+                    </a>
+                </li>
+            </ul>
+            <a class="logout flexRow" type="button" href="../../php/util/logout.php">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <p>Logout</p>
+            </a>
+        </nav>
+    </aside>
+    
     <a class="new book" href="./novoEmprestimo.php"> 
         <i class="fa-solid fa-plus"></i>
         <h2>Novo Empréstimo Manual</h2>

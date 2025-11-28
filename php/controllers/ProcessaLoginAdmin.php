@@ -30,7 +30,7 @@ try {
         $stmtFunc->execute();
         $funcionario = $stmtFunc->fetch();
 
-        $_SESSION['id'] = $login['id']; // CORRIGIDO: Agora usa 'id'
+        $_SESSION['admin_id'] = $login['id']; // CORRIGIDO: Agora usa 'id'
         $_SESSION['nome'] = $funcionario['nome'] ?? 'Admin'; // CORRIGIDO: Agora usa 'nome'
         $_SESSION['nivel'] = $login['nivel']; 
 
