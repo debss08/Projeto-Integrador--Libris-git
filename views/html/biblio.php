@@ -16,7 +16,7 @@ $livros = Livro::listarTodos();
 <head>
     <meta charset="UTF-8">
     <title>Acervo</title>
-    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../style/css/global.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="../js/global.js"></script>

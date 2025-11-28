@@ -27,6 +27,7 @@
                 <p>Pouco texto, pouco texto, pouco texto, pouco texto, pouco texto, pouco texto, pouco texto, pouco texto, pouco texto...</p>
             </div>
             <div class="hero-image">
+                <img src="../style/imgs/livrosGrandesFlutuantes.png" alt="">
                 </div>
         </section>
         <div class="hero-bottom-curve"></div>
@@ -35,14 +36,17 @@
             <h2>O que quer fazer agora?</h2>
             <div class="actions-grid">
                 <div class="action-card">
+                    <img src="../style/imgs/trioLivrosPequenos.png" alt="">
                     <h3>Ver acervo</h3>
                     <a href="acervo.php" class="btn login">Acessar →</a>
                 </div>
                 <div class="action-card">
+                    <img src="../style/imgs/trioLivrosPequenos.png" alt="">
                     <h3>Meus empréstimos</h3>
                     <a href="area_aluno.php" class="btn login">Acessar →</a>
                 </div>
                 <div class="action-card">
+                    <img src="../style/imgs/trioLivrosPequenos.png" alt="">
                     <h3>Painel administrativo</h3>
                     <a href="login_admin.html" class="btn login">Acessar →</a>
                 </div>

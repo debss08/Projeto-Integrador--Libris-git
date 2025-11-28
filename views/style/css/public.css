@@ -61,9 +61,12 @@ body {
 }
 .hero-image {
     margin-top: 2rem;
+    margin-bottom: -5rem;
 }
 .hero-image img {
-    max-width: 350px;
+    max-width: 450px;
+    position: relative;
+    z-index: 100;
 }
 .hero-bottom-curve {
     background-color: var(--cor-fundo);
@@ -107,7 +110,6 @@ body {
 }
 .action-card .btn {
     display: block;
-    width: 100%;
 }
 
 /* === Acervo (2.jpg) === */

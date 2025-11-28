@@ -9,8 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Libris - Nosso Acervo</title>
-    <link rel="stylesheet" href="../../css/global.css">
-    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../style/css/global.css">
+    <link rel="stylesheet" href="../style/css/public.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
@@ -42,13 +42,20 @@
                     <h3><?php echo htmlspecialchars($livro->titulo); ?></h3>
                     <p>Autor: <?php echo htmlspecialchars($livro->autor); ?></p>
                     <p>Categorias: <?php echo htmlspecialchars($livro->nome_categoria); ?></p>
-                    </div>
+                </div>
             <?php endforeach; ?>
         </div>
     </main>
 
     <footer class="public-footer">
-        </footer>
+        <a href="index.php" class="logo">✦ libris</a>
+        <p>Copyright © IFSul 2025 | Desenvolvido por Débora de Oliveira e Vitória Pless</p>
+        <nav class="footer-nav">
+            <a href="acervo.php">Acervo</a>
+            <a href="area_aluno.php">Meus empréstimos</a>
+            <a href="login_admin.html">Painel administrativo</a>
+        </nav>
+    </footer>
 
 </body>
 </html>

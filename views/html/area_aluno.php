@@ -37,8 +37,8 @@ $emprestimos_historico = $stmt_historico->fetchAll();
 <head>
     <meta charset="UTF-8">
     <title>Minha Conta - Libris</title>
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../style/css/global.css">
+    <link rel="stylesheet" href="../style/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>

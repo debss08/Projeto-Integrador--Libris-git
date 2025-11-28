@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login do Aluno</title>
-    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="../style/css/global.css">
 </head>
 <body>
 <main id="welcomePage">
@@ -20,7 +20,7 @@
         <p>Primeira vez?</p>
         <a class="btn signin" href="cadastro_aluno.php">Cadastre-se aqui</a>
         <hr>
-        <a class="btn signin" style="background: #eee;" href="html/login_admin.html">Sou Administrador</a>
+        <a class="btn signin" style="background: #eee;" href="login_admin.html">Sou Administrador</a>
     </div>
 </main>
 </body>

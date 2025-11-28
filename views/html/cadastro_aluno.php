@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../style/css/global.css">
 </head>
 <body>
 <main id="welcomePage">
@@ -28,7 +28,7 @@
             <button type="submit" class="btn login">Finalizar cadastro</button>
         </form>
 
-        <a class="btn signin" href="login.html">Voltar para o login</a>
+        <a class="btn signin" href="login_aluno.php">Voltar para o login</a>
     </div>
 </main>
 </body>

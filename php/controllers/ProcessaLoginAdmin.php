@@ -9,7 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $matricula = trim($_POST['matricula'] ?? '');
 $senha = trim($_POST['senha'] ?? '');
-// ... (resto da sua lógica de login de admin) ...
+
+if ($matricula === '' || $senha === '') {
+    echo "<script>alert('Preencha todos os campos.'); history.back();</script>";
+    exit();
+}
 
 try {
     $con = Conexao::getConexao();
