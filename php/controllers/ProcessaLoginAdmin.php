@@ -35,7 +35,7 @@ try {
         $_SESSION['nivel'] = $login['nivel']; 
 
         // Redireciona para o painel principal
-        header("Location: ../../views/html/inicio.php"); 
+        header("Location: ../../views/html/inicio_admin.php"); 
         exit();
     } else {
          // Se a falha for de credenciais ou nível incorreto

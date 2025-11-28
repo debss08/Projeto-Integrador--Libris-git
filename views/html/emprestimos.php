@@ -65,12 +65,6 @@ $emprestimos_historico = $stmt_historico->fetchAll();
                     </a>
                 </li>
                 <li>
-                    <a href="./gerenciar_usuarios.php" class="navBar-itemList">
-                        <i class="fa-solid fa-users-gear"></i>
-                        <p>Gerenciar Usuários</p>
-                    </a>
-                </li>
-                <li>
                     <a href="./emprestimos.php" class="navBar-itemList">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <p>Empréstimos</p>
@@ -89,7 +83,7 @@ $emprestimos_historico = $stmt_historico->fetchAll();
             </a>
         </nav>
     </aside>
-    
+
     <a class="new book" href="./novoEmprestimo.php"> 
         <i class="fa-solid fa-plus"></i>
         <h2>Novo Empréstimo Manual</h2>

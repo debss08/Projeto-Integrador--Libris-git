@@ -6,7 +6,7 @@ if (!isset($_SESSION['admin_id'])) {
     exit();
 }
 
-require_once "../../php/models/Conexao.php";
+require "../../php/models/Conexao.php";
 require_once "../../php/models/Livro.php"; // Chama a nova classe Livro
 
 $livros = Livro::listarTodosComDetalhes();
@@ -35,12 +35,6 @@ $livros = Livro::listarTodosComDetalhes();
                     <a href="./inicio_admin.php" class="navBar-itemList">
                         <i class="fa-solid fa-house"></i>
                         <p>Início</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="./gerenciar_usuarios.php" class="navBar-itemList">
-                        <i class="fa-solid fa-users-gear"></i>
-                        <p>Gerenciar Usuários</p>
                     </a>
                 </li>
                 <li>

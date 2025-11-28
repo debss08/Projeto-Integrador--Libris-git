@@ -15,7 +15,7 @@ $categorias = Categoria::listarTodas();
     <title>Cadastrar novo livro</title>
     <link rel="stylesheet" href="../style/css/global.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="../../js/global.js"></script>
+    <script src="../js/global.js"></script>
 </head>
 <body class="fundoAzul">
     <aside>
@@ -82,7 +82,7 @@ $categorias = Categoria::listarTodas();
                     <label for="quantidade">Quantidade</label>
                     <input type="number" id="quantidade" name="quantidade" class="input welcome" required min="1">
 
-                    <label for="categoria">Categoria</label> <button type="button" class="btn-add-categoria" id="btnAbrirModal">+</button>
+                    <label for="categoria">Categoria</label> <button type="button" class="btn-add-categoria" id="btnAbrirModal" onclick="abrirModal()">+</button>
                     <select id="categoria" name="categoria" class="input welcome" required>
                         <option value="">Selecione uma categoria</option>
                         <?php foreach ($categorias as $c): ?>
@@ -99,20 +99,8 @@ $categorias = Categoria::listarTodas();
         </div>
     </main>
 
-    <div id="modalCategoria" class="modal"> ... </div>
+    <div id="modalCategoria" class="modal"> 
 
-    <script>
-    $(document).ready(function() {
-        // ... (seu código JS do modal) ...
-        formCategoria.on("submit", function(e) {
-            e.preventDefault();
-            $.ajax({
-                url: '../../php/controllers/ProcessaCategoria.php', // Caminho ajustado
-                type: 'POST',
-                // ... (resto do seu AJAX) ...
-            });
-        });
-    });
-    </script>
+    </div>
 </body>
 </html>
