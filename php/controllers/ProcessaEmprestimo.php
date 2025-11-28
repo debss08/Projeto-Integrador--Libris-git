@@ -12,10 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $id_livro = (int)$_POST['id_livro'];
     $id_aluno = (int)$_POST['id_aluno'];
     $data_retirada = $_POST['data_retirada'];
-    // Data de devolução é NULL ao criar
-    $data_devolucao = !empty($_POST['data_devolucao']) ? $_POST['data_devolucao'] : null;
-
-    if (empty($id_livro) || empty($id_aluno) || empty($data_retirada)) {
+    $data_devolucao = $_POST['data_devolucao']
+    if (empty($id_livro) || empty($id_aluno) || empty($data_retirada) || empty($data_devolucao)) {
         echo "<script>alert('Preencha todos os campos obrigatórios.'); history.back();</script>";
         exit;
     }

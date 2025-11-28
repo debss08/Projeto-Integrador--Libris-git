@@ -16,7 +16,9 @@
 <body>
 
     <header class="public-header">
-        <a href="index.php" class="logo">✦ libris</a>
+        <a href="index.php" class="logo">
+            <img src="../style/imgs/logoLibris.svg" alt="">
+        </a>
         <nav class="public-nav">
             <a href="index.php">Início</a>
             <a href="acervo.php">Acervo</a>
@@ -42,13 +44,21 @@
                     <h3><?php echo htmlspecialchars($livro->titulo); ?></h3>
                     <p>Autor: <?php echo htmlspecialchars($livro->autor); ?></p>
                     <p>Categorias: <?php echo htmlspecialchars($livro->nome_categoria); ?></p>
+                    <button 
+                        type="button" 
+                        class="btn login"
+                        onclick="window.location.href='../../php/controllers/RetirarLivro.php?id_livro=<?php echo $livro->id; ?>'">
+                        Retirar Livro
+                    </button>
                 </div>
             <?php endforeach; ?>
         </div>
     </main>
 
     <footer class="public-footer">
-        <a href="index.php" class="logo">✦ libris</a>
+        <a href="index.php" class="logo">
+            <img src="../style/imgs/logoLibris.svg" alt="">
+        </a>
         <p>Copyright © IFSul 2025 | Desenvolvido por Débora de Oliveira e Vitória Pless</p>
         <nav class="footer-nav">
             <a href="acervo.php">Acervo</a>

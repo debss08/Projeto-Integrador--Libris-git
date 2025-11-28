@@ -22,7 +22,8 @@ if (!isset($_SESSION['id'])) {
             <div class="infosUser-menu flexRow">
                 <i class="fa-regular fa-user"></i>
                 <div class="flexColumn">
-                    <p class="bolder"><?php echo htmlspecialchars($_SESSION['nome']);?></p>
+                    <i class="fa-solid fa-user-gear"></i>
+                    <p class="bolder">Admin: <?php echo htmlspecialchars($_SESSION['nome']);?></p>
                 </div>
             </div>
             <ul class="navBar-list">

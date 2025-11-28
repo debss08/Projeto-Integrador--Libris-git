@@ -13,10 +13,16 @@ body {
     background-color: var(--cor-principal);
     color: var(--cor-texto-claro);
 }
-.public-header .logo {
-    font-size: 1.8rem;
+
+.logo {
     font-weight: 700;
     color: var(--cor-texto-claro);
+}
+
+.logo img{
+    height: 2.5rem;
+    object-fit: cover;
+    margin-bottom: -7px;
 }
 .public-nav a {
     margin-left: 1.5rem;

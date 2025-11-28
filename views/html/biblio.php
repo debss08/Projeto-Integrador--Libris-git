@@ -25,10 +25,8 @@ $livros = Livro::listarTodosComDetalhes();
 <aside>
         <nav id="navBar">
             <div class="infosUser-menu flexRow">
-                <i class="fa-solid fa-user-gear"></i> <div class="flexColumn">
-                    <p class="bolder">Admin: <?php echo htmlspecialchars($_SESSION['nome']);?></p>
-                    <p>Nível: <?php echo htmlspecialchars(ucfirst($_SESSION['nivel']));?></p>
-                </div>
+                <i class="fa-solid fa-user-gear"></i>
+                <p class="bolder">Admin: <?php echo htmlspecialchars($_SESSION['nome']);?></p>
             </div>
             <ul class="navBar-list">
                 <li>
@@ -71,7 +69,7 @@ $livros = Livro::listarTodosComDetalhes();
     <?php if (count($livros) > 0): ?>
         <?php foreach ($livros as $l):?>
             <div class="item-book flexRow"> 
-                <img src="../<?php echo htmlspecialchars($l->imagem_capa ? $l->imagem_capa : 'imagens/capa-padrao.png'); ?>" alt="Capa de <?php echo htmlspecialchars($l->titulo); ?>">
+                <img src="../../<?php echo htmlspecialchars($l->imagem_capa ? $l->imagem_capa : 'imagens/capa-padrao.png'); ?>" alt="Capa de <?php echo htmlspecialchars($l->titulo); ?>">
                 <div class="flexColumn">
                     <h3><?php echo htmlspecialchars($l->titulo); ?></h3>
                     <p>

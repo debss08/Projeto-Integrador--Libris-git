@@ -10,7 +10,9 @@
 <body>
 
     <header class="public-header">
-        <a href="index.php" class="logo">✦ libris</a>
+        <a href="index.php" class="logo">
+            <img src="../style/imgs/logoLibris.svg" alt="">
+        </a>
         <nav class="public-nav">
             <a href="index.php">Início</a>
             <a href="acervo.php">Acervo</a>

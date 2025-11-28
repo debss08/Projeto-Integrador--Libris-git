@@ -21,22 +21,14 @@ if ($_SESSION['nivel'] != 'admin' || !isset($_SESSION['admin_id'])) {
     <aside>
         <nav id="navBar">
             <div class="infosUser-menu flexRow">
-                <i class="fa-solid fa-user-gear"></i> <div class="flexColumn">
-                    <p class="bolder">Admin: <?php echo htmlspecialchars($_SESSION['nome']);?></p>
-                    <p>Nível: <?php echo htmlspecialchars(ucfirst($_SESSION['nivel']));?></p>
-                </div>
+                <i class="fa-solid fa-user-gear"></i>
+                <p class="bolder">Admin: <?php echo htmlspecialchars($_SESSION['nome']);?></p>
             </div>
             <ul class="navBar-list">
                 <li>
                     <a href="./inicio_admin.php" class="navBar-itemList">
                         <i class="fa-solid fa-house"></i>
                         <p>Início</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="./gerenciar_usuarios.php" class="navBar-itemList">
-                        <i class="fa-solid fa-users-gear"></i>
-                        <p>Gerenciar Usuários</p>
                     </a>
                 </li>
                 <li>
@@ -64,7 +56,7 @@ if ($_SESSION['nivel'] != 'admin' || !isset($_SESSION['admin_id'])) {
                 <h1 class="tituloPrincipal">Bem vindo(a), Administrador(a) <?php echo htmlspecialchars($_SESSION['nome']);?>!</h1>
                 <p class="descricao">Você está na área de Gerenciamento <b>Administrativo</b> do Libris.</p>
             </div>
-            <img src="../imagens/bibliotecariaBranca.png" alt="jdfj">
+            <img src="../style/imgs/bibliotecariaBranca.png" alt="jdfj">
         </div>
 
         <div class="invisibleContainer">
@@ -89,18 +81,6 @@ if ($_SESSION['nivel'] != 'admin' || !isset($_SESSION['admin_id'])) {
                     </a>
                     <h2>Fazer novo empréstimo</h2>
                     <a href="./novaEmprestimo.php">
-                        <button type="button" class="btn btn-mainAction">
-                            Acessar
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                    </a>
-                </div>
-                <div class="mainAction laranja">
-                    <a href="./gerenciar_usuarios.php" class="icon-mainAction">
-                        <i class="fa-solid fa-users"></i>
-                    </a>
-                    <h2>Ver Dashboard</h2>
-                    <a href="./gerenciar_usuarios.php" >
                         <button type="button" class="btn btn-mainAction">
                             Acessar
                             <i class="fa-solid fa-arrow-right"></i>

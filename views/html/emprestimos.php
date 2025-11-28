@@ -52,10 +52,8 @@ $emprestimos_historico = $stmt_historico->fetchAll();
     <aside>
         <nav id="navBar">
             <div class="infosUser-menu flexRow">
-                <i class="fa-solid fa-user-gear"></i> <div class="flexColumn">
-                    <p class="bolder">Admin: <?php echo htmlspecialchars($_SESSION['nome']);?></p>
-                    <p>Nível: <?php echo htmlspecialchars(ucfirst($_SESSION['nivel']));?></p>
-                </div>
+                <i class="fa-solid fa-user-gear"></i>
+                <p class="bolder">Admin: <?php echo htmlspecialchars($_SESSION['nome']);?></p>
             </div>
             <ul class="navBar-list">
                 <li>

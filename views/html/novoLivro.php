@@ -21,22 +21,14 @@ $categorias = Categoria::listarTodas();
     <aside>
         <nav id="navBar">
             <div class="infosUser-menu flexRow">
-                <i class="fa-solid fa-user-gear"></i> <div class="flexColumn">
-                    <p class="bolder">Admin: <?php echo htmlspecialchars($_SESSION['nome']);?></p>
-                    <p>Nível: <?php echo htmlspecialchars(ucfirst($_SESSION['nivel']));?></p>
-                </div>
+                <i class="fa-solid fa-user-gear"></i>
+                <p class="bolder">Admin: <?php echo htmlspecialchars($_SESSION['nome']);?></p>
             </div>
             <ul class="navBar-list">
                 <li>
                     <a href="./inicio_admin.php" class="navBar-itemList">
                         <i class="fa-solid fa-house"></i>
                         <p>Início</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="./gerenciar_usuarios.php" class="navBar-itemList">
-                        <i class="fa-solid fa-users-gear"></i>
-                        <p>Gerenciar Usuários</p>
                     </a>
                 </li>
                 <li>
@@ -99,8 +91,80 @@ $categorias = Categoria::listarTodas();
         </div>
     </main>
 
-    <div id="modalCategoria" class="modal"> 
-
+    <div id="modalCategoria" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="btnCloseModal">&times;</span>
+            <h2>Nova Categoria</h2>
+            <form id="formAddCategoria" class="flexColumn">
+                <label for="nome_categoria">Nome da Categoria</label>
+                <input type="text" id="nome_categoria" name="nome_categoria" class="input welcome" required>
+                <button type="submit" class="btn login">Salvar Categoria</button>
+                <p id="modalMensagem" style="color: red;"></p>
+            </form>
+        </div>
     </div>
+
+    <script>
+    $(document).ready(function() {
+        const modal = $("#modalCategoria");
+        const btnAbrir = $("#btnAbrirModal");
+        const btnFechar = $("#btnCloseModal");
+        const formCategoria = $("#formAddCategoria");
+        const selectCategoria = $("#categoria");
+        const modalMensagem = $("#modalMensagem");
+
+        // Abrir modal
+        btnAbrir.on("click", function() {
+            modalMensagem.text("");
+            formCategoria.trigger("reset"); // Limpa o formulário
+            modal.css("display", "block");
+        });
+
+        // Fechar modal
+        btnFechar.on("click", function() {
+            modal.css("display", "none");
+        });
+        
+        // Fechar se clicar fora
+        $(window).on("click", function(event) {
+            if (event.target == modal[0]) {
+                modal.css("display", "none");
+            }
+        });
+
+        // Enviar o formulário de nova categoria
+        formCategoria.on("submit", function(e) {
+            e.preventDefault(); // Impede o envio normal
+            modalMensagem.text("");
+            
+            $.ajax({
+                url: '../../php/controllers/ProcessaCategoria.php',
+                type: 'POST',
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(response) {
+                    if (response.success) {
+                        // 1. Adiciona a nova opção no select
+                        const novaOpcao = new Option(response.nome, response.id);
+                        selectCategoria.append(novaOpcao);
+                        
+                        // 2. Seleciona a opção que acabou de ser criada
+                        selectCategoria.val(response.id);
+                        
+                        // 3. Fecha o modal
+                        modal.css("display", "none");
+                        alert('Categoria "' + response.nome + '" adicionada!');
+                    } else {
+                        // Mostra erro (ex: "categoria já existe")
+                        modalMensagem.text(response.message);
+                    }
+                },
+                error: function() {
+                    modalMensagem.text('Erro de conexão. Tente novamente.');
+                }
+            });
+        });
+    });
+    </script>
 </body>
 </html>

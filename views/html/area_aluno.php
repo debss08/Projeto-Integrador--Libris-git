@@ -31,6 +31,7 @@ $stmt_historico->bindParam(':id_aluno', $id_aluno_logado);
 $stmt_historico->execute();
 $emprestimos_historico = $stmt_historico->fetchAll();
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -42,7 +43,9 @@ $emprestimos_historico = $stmt_historico->fetchAll();
 </head>
 <body>
     <header class="public-header">
-        <a href="index.php" class="logo">Libris 📚</a>
+        <a href="index.php" class="logo">
+            <img src="../style/imgs/logoLibris.svg" alt="">
+        </a>
         <nav class="public-nav">
             <a href="index.php">Início</a>
             <a href="acervo.php">Nosso Acervo</a>
@@ -75,9 +78,9 @@ $emprestimos_historico = $stmt_historico->fetchAll();
         <div class="acervo-grid">
              <?php if (count($emprestimos_historico) > 0): ?>
                 <?php foreach ($emprestimos_historico as $livro): ?>
-                    <div class="book-card" style="opacity: 0.7;"> <img src="<?php echo htmlspecialchars($livro['imagem_capa'] ? $livro['imagem_capa'] : 'imagens/capa-padrao.png'); ?>" alt="Capa">
+                    <div class="book-card" style="opacity: 0.7;"> <img src="../../<?php echo htmlspecialchars($livro['imagem_capa'] ? $livro['imagem_capa'] : 'imagens/capa-padrao.png'); ?>" alt="Capa">
                         <h3><?php echo htmlspecialchars($livro['titulo']); ?></h3>
-                        <p>Devolvido em: <?php echo date('d/m/Y', strtotime($livro['data_devolucao'])); ?></p>
+                        <p>Devolver em: <?php echo date('d/m/Y', strtotime($livro['data_devolucao'])); ?></p>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
@@ -85,5 +88,16 @@ $emprestimos_historico = $stmt_historico->fetchAll();
             <?php endif; ?>
         </div>
     </main>
+    <footer class="public-footer">
+        <a href="index.php" class="logo">
+            <img src="../style/imgs/logoLibris.svg" alt="">
+        </a>
+        <p>Copyright © IFSul 2025 | Desenvolvido por Débora de Oliveira e Vitória Pless</p>
+        <nav class="footer-nav">
+            <a href="acervo.php">Acervo</a>
+            <a href="area_aluno.php">Meus empréstimos</a>
+            <a href="login_admin.html">Painel administrativo</a>
+        </nav>
+    </footer>
 </body>
 </html>
